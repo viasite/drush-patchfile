@@ -275,7 +275,7 @@ function drush_patchfile_get_patched_projects($patchfile = NULL, $use_cache = FA
     $patchfile = drush_get_option('patch-file');
   }
 
-  if (!empty($patchfile)) {
+  if (!empty($patchfile) && file_exists($patchfile)) {
     // Cache not only by filename, but also by the time the file was modified
     // so that a drush cache clear is not necessary to pick up changes.
     $cid = _drush_patchfile_get_file_cid($patchfile);
